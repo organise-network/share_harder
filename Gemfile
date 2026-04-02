@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.4.4'
+ruby '3.3.9'
 
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'react_on_rails', '11.0.8'
 gem 'jquery-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.0'
+gem 'rails', '~> 7.2'
 # Use postgres as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
@@ -45,7 +45,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'awesome_print'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rspec-rails', '~> 3.7'
+  gem 'rspec-rails'
   gem 'pry'
   gem 'bundler-audit'
 end
@@ -71,7 +71,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'identity_cache', git: 'https://github.com/Shopify/identity_cache.git', ref: 'e4d428d58954472ff8032e35f9f8d043be4fd9b8'
+gem 'identity_cache'
 gem 'cityhash'
 gem 'redis-rails'
 gem 'sidekiq'
