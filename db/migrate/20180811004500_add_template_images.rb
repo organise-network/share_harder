@@ -1,12 +1,3 @@
-class TemplateImage < ApplicationRecord
-  belongs_to :variant, optional: true
-end
-
-class Variant < ApplicationRecord
-  has_one :template_image
-end
-
-
 class AddTemplateImages < ActiveRecord::Migration[5.2]
   def change
     create_table :template_images do |t|
