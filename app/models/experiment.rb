@@ -1,8 +1,8 @@
 class Experiment < ApplicationRecord
   include IdentityCache
 
-  has_many :variants
-  cache_has_many :variants, :embed => true, inverse_name: :experiment
+  has_many :variants, inverse_of: :experiment
+  cache_has_many :variants, :embed => true
 
   accepts_nested_attributes_for :variants, allow_destroy: true
 
