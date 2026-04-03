@@ -378,6 +378,8 @@ GEM
       sprockets (>= 3.0.0)
     statistics2 (0.54)
     stringio (3.2.0)
+    terser (1.2.7)
+      execjs (>= 0.3.0, < 3)
     thor (1.5.0)
     tilt (2.0.8)
     timeout (0.6.1)
@@ -386,8 +388,6 @@ GEM
       bigdecimal (~> 3.1)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    uglifier (4.1.12)
-      execjs (>= 0.3.0, < 3)
     uri (1.1.1)
     useragent (0.16.11)
     web-console (3.6.2)
@@ -395,7 +395,7 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
-    webpacker (5.4.4)
+    webpacker (6.0.0.rc.6)
       activesupport (>= 5.2)
       rack-proxy (>= 0.6.1)
       railties (>= 5.2)
@@ -450,11 +450,11 @@ DEPENDENCIES
   sidekiq
   simple-random
   spring
+  terser
   ttfunk
   tzinfo-data
-  uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
-  webpacker
+  webpacker (= 6.0.0.rc.6)
   will_paginate
 
 RUBY VERSION
