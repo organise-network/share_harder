@@ -65,7 +65,8 @@ class ExperimentsController < ApplicationController
     end
 
     url = e_url(@experiment, params: request.query_parameters.merge({ key: key }))
-    redirect_to "https://www.facebook.com/sharer.php?u=#{CGI.escape(url)}"
+    # redirect_to "https://www.facebook.com/sharer.php?u=#{CGI.escape(url)}"
+    redirect_to "https://api.whatsapp.com/send?text=#{CGI.escape(url)}"
   end
 
   def metatags
@@ -86,7 +87,7 @@ class ExperimentsController < ApplicationController
     AddClickWorker.perform_async(params[:key], click_key, request.user_agent, request.remote_ip)
     Rails.logger.info(request.user_agent)
     Rails.logger.info(request.headers)
-    redirect_to("https://#{@experiment.url}?rkey=#{click_key}&utm_source=share&utm_medium=facebook&utm_campaign=#{params[:key]}")
+    redirect_to("https://#{@experiment.url}?rkey=#{click_key}&utm_source=share&utm_medium=whatsapp&utm_campaign=#{params[:key]}")
   end
 
   private
