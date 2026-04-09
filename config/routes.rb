@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq', constraints: lambda { |request|
+    return true if Rails.env.local?
+    return false unless (user = User.find_by(id: request.session[:user_id]))
+
+    user&.admin?
+  }
+
   root to: 'home#show'
 
   get 'login', to: redirect('/auth/google_oauth2'), as: 'login'
