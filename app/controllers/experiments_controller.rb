@@ -22,7 +22,7 @@ class ExperimentsController < ApplicationController
   end
 
   def clone
-    new_experiment = @experiment.deep_clone(include: :variants)
+    new_experiment = @experiment.deep_clone(include: { variants: :template_image })
     new_experiment.name += ' (clone)'
     new_experiment.save!
     new_experiment.update! url: experiment_demo_url(new_experiment)
