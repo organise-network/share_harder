@@ -61,11 +61,6 @@ class ExperimentResults extends React.Component {
         <Card style={{overflow: 'visible'}}>
           <CardHeader title='Goals'></CardHeader>
           <CardContent>
-            <div className="row">
-              <div className="col-md-4"></div>
-              <div className="col-md-2" style={{textAlign: 'center'}}>% of time chosen</div>
-              <div className="col-md-6" style={{textAlign: 'center'}}>Goals per share</div>
-            </div>
             <ReactCSSTransitionGroup
               transitionName="example"
               transitionEnterTimeout={5000}
