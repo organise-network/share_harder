@@ -9,6 +9,7 @@ const styles = {
   image: { width: '100%' },
   title: { fontSize: '0.75em', margin: '0 3px 0 3px'},
   description: { fontSize: '0.55em', margin: '0 3px 0 3px' },
+  share_text: { fontSize: '0.55em', margin: '0 3px 0 3px', borderTop: '1px solid black' },
   statsBox: {
     display: 'flex',
     'justifyContent': 'center',
@@ -49,7 +50,7 @@ export default class VariantResults extends React.Component {
 
   render() {
     const { highRange, lowRange } = this.props;
-    const { title, description, share_count, click_count, goal_count, proportion, confidence_interval } = this.props.variant
+    const { title, description, share_text, share_count, click_count, goal_count, proportion, confidence_interval } = this.props.variant
     const image_url = this.props.variant.template_image.url
 
     return (
@@ -59,6 +60,7 @@ export default class VariantResults extends React.Component {
             <img src={image_url} style={styles.image} />
             <div style={styles.title} className='title'>{title}</div>
             <div style={styles.description} className='description'>{description}</div>
+            <div style={styles.share_text} className='share_text'>{share_text}</div>
           </Card>
         </div>
         <div className='col-md-3 col-xs-3 text-center' style={styles.statsBox}>

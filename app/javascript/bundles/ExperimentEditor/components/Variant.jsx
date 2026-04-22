@@ -20,6 +20,7 @@ const styles = {
   image: { width: 540, height: 300 },
   title: { fontSize: '1.3em', margin: '0 10px 0 10px'},
   description: { fontSize: '0.9em', margin: '0 10px 0 10px' },
+  share_text: { fontSize: '0.9em', margin: '0 10px 0 10px', borderTop: '1px solid black', width: '26em' },
   image_url: { width: '100%', padding: '10px', display: 'none' },
   delete_icon: { position: 'absolute', bottom: '3px', right: '10px' },
   variantId: { position: 'absolute', right: '-30px', top: '20px', background: '#fff' }
@@ -41,6 +42,7 @@ class Variant extends React.Component {
       _id: this.props.variant._id,
       title: variantEl.querySelector('.title').textContent,
       description: variantEl.querySelector('.description').textContent,
+      share_text: variantEl.querySelector('.share_text').textContent,
     })
   }
 
@@ -79,6 +81,7 @@ class Variant extends React.Component {
           <TemplateImage template_image={this.props.variant.template_image} style={styles.image} dispatches={this.props.dispatches} isResizeable={false}/>
           <div style={styles.title} className='title' contentEditable={true} suppressContentEditableWarning={true}  onBlur={this.onUpdate.bind(this)}>{this.props.variant.title}</div>
           <div style={styles.description} className='description' contentEditable={true} suppressContentEditableWarning={true} onBlur={this.onUpdate.bind(this)}>{this.props.variant.description}</div>
+          <div style={styles.share_text} className='share_text' contentEditable={true} suppressContentEditableWarning={true} onBlur={this.onUpdate.bind(this)}>{this.props.variant.share_text}</div>
         </Card>
         <Dialog
           open={this.state.dialog_open}

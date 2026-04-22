@@ -32,6 +32,7 @@
         if (personalisation.hasOwnProperty(key)) {
           rendered_variant.title = rendered_variant.title.replace('{{' + key + '}}', personalisation[key])
           rendered_variant.description = rendered_variant.description.replace('{{' + key + '}}', personalisation[key])
+          rendered_variant.share_text = rendered_variant.share_text.replace('{{' + key + '}}', personalisation[key])
           personalisationParameters += '&m_' + key + '=' + encodeURIComponent(personalisation[key])
         }
       }
@@ -43,7 +44,7 @@
         rendered_variant.rendered_image_url = rendered_variant.image_url
       }
 
-      sharedUrl = encodeURIComponent(rendered_variant.description + ' ' + appUrl + '/e/' + rendered_variant.experiment_id + '?' + queryParameters)
+      sharedUrl = encodeURIComponent(rendered_variant.share_text + ' ' + appUrl + '/e/' + rendered_variant.experiment_id + '?' + queryParameters)
       rendered_variant.share_url = "https://api.whatsapp.com/send?text=" + sharedUrl
       rendered_variant.key = key
     }
