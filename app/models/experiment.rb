@@ -13,7 +13,7 @@ class Experiment < ApplicationRecord
   end
 
   def self.lookup_by_url(url)
-    Experiment.find_by(url: Experiment.normalize_url(url))
+    Experiment.find_by(url: Experiment.normalize_url(url), archived_at: nil)
   end
 
   def normalize_url!
