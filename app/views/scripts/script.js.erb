@@ -2,6 +2,7 @@
   function($){
     var getVariant = function(options){
       options = typeof options !== 'undefined' ? options : {};
+      options.failCallback = options.failCallback || function(){};
 
       if (options.callback){
         callback = options.callback // store to update later
@@ -16,7 +17,7 @@
         variant = data;
         renderVariant()
         callback(rendered_variant);
-      })
+      }).fail(options.failCallback)
     }
 
     var renderVariant = function() {
