@@ -21,15 +21,16 @@
     }
 
     var renderVariant = function() {
-      key = generateKey()
+      var uid = generateKey()
+      var key; // hoisted from for loop below
       rendered_variant = Object.assign({}, variant)
-      queryParameters = 'v=' + variant.id + '&key=' + key
+      queryParameters = 'v=' + variant.id + '&key=' + uid
       if (referrer_key) {
         queryParameters += '&rkey=' + referrer_key
       }
 
       personalisationParameters = ''
-      for (var key in personalisation) {
+      for (key in personalisation) {
         if (personalisation.hasOwnProperty(key)) {
           rendered_variant.title = rendered_variant.title.replace('{{' + key + '}}', personalisation[key])
           rendered_variant.description = rendered_variant.description.replace('{{' + key + '}}', personalisation[key])
@@ -47,7 +48,7 @@
 
       sharedUrl = encodeURIComponent(rendered_variant.share_text + ' ' + appUrl + '/e/' + rendered_variant.experiment_id + '?' + queryParameters)
       rendered_variant.share_url = "https://api.whatsapp.com/send?text=" + sharedUrl
-      rendered_variant.key = key
+      rendered_variant.key = uid
     }
 
     var generateKey = function() {
